@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-2 shadow-sm">
         <div className="container">
           <NavLink className="navbar-brand fw-bold fs-4" to="/">
-            Shopping Cart
+            Book Store
           </NavLink>
           <button
             className="navbar-toggler"
@@ -31,9 +31,9 @@ const Navbar = () => {
                 <NavLink
                   className="nav-link active"
                   aria-current="page"
-                  to="/products"
+                  to="/book"
                 >
-                  Products
+                  Books
                 </NavLink>
               </li>
 
@@ -57,16 +57,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="buttons">
-              <NavLink to="/login" className="btn btn-outline-dark">
-                <i className="fa fa-sign-in me-1" aria-hidden="true"></i> Login
-              </NavLink>
-
-              <NavLink to="/cart" className="btn btn-outline-dark ms-2">
-                <i className="fa fa-user-plus me-1" aria-hidden="true"></i>My
-                Cart5
-              </NavLink>
-            </div>
+            <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="border-0 rounded-3 bg-dark text-light p-0 m-0 px-2" type="submit">Search</button>
+      </form>
           </div>
         </div>
       </nav>
