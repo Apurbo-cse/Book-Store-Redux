@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router-dom';
+import Master from './components/layout/Maser';
 
 
 function App() {
@@ -13,8 +14,10 @@ function App() {
   return (
     <>
       <Routes>
-        
-        <Route path='/' element={} />
+
+        <Route  element={Master}>
+
+          <Route/>
 
       </Routes>
     </>
