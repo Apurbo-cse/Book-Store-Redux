@@ -18,7 +18,7 @@ const addBook = (name, author, img_url, price, rating, featured) => {
             });
 
             const book = res.data;
-            dispatch(added(book.name, book.author, book.img_url, book.price, book.rating));
+            dispatch(added(book.name, book.author, book.img_url, book.price, book.rating, book.featured));
         } catch (error) {
             // Handle error
             console.error(error);
