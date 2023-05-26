@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import addBook from "../redux/feature/book/thunk/addBook";
 
 const AddBook = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const AddBook = () => {
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        dispatch(addTodo(input));
+        dispatch(addBook(input));
         setInput("");
     }
 
