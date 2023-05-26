@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BookCard } from "./BookCard";
 import AddBook from "./AddBook";
 import { useDispatch, useSelector } from "react-redux";
 import fetchBooks from "../redux/feature/book/thunk/fetchBooks";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true); // State to track loading status
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBooks);
+    dispatch(fetchBooks)
+      .then(() => setLoading(false))
+      .catch((error) => {
+        console.log("Error fetching books:", error);
+        setLoading(false);
+      });
   }, [dispatch]);
 
   // Sort the books array in reverse chronological order based on ID
@@ -31,9 +37,17 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-            {sortedBooks.map((data) => (
-              <BookCard data={data} key={data.id} />
-            ))}
+            {loading ? ( // Display loader while loading is true
+              <div>Loading...</div>
+            ) : books.length === 0 ? (
+              <div>
+                No books found.
+              </div>
+            ) : (
+              sortedBooks.map((data) => (
+                <BookCard data={data} key={data.id} />
+              ))
+            )}
           </div>
         </div>
         <div className="col-md-3">
