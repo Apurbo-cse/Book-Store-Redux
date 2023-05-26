@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const AddBook = () => {
+    const dispatch = useDispatch();
+    const [ input, setInput] = useState('');
+
+    const handelInput = (e) => {
+        setInput(e.target.value);
+    }
+
     return (
         <>
             <form className="shadow p-2 pt-0">
                 <h4>Create New Book</h4>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Book Name</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" value={input} onChange={handelInput} className="form-control" />
                     {/* <small id="emailHelp" className="form-text text-muted mb-2">
                 We'll never share your email with anyone else.
               </small> */}
