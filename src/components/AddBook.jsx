@@ -27,8 +27,8 @@ const AddBook = () => {
                         <input
                             type="text"
                             class="form-control"
-                            value={value}
-                            onChange={handleInputChange}
+                            // value={value}
+                            // onChange={handleInputChange}
                             placeholder="0"
                         />
                     </div>
