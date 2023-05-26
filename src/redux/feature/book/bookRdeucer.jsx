@@ -17,6 +17,7 @@ const bookReducer = (state=initialState , action) => {
                 {
                     id: nextBookId(state),
                     name: action.payload,
+                    author: action.payload,
                     featured: false
                 }
             ]
