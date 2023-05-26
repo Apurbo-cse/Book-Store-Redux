@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchBooks);
   }, [dispatch]);
-  console.log('object :>> ', books);
+  console.log("object :>> ", books);
   return (
     <div className="container">
       <div className="row my-4">
@@ -27,9 +27,9 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-          {books.map((data) => (
-  <BookCard data={data} key={data.id} />
-))}
+            {books.map((data) => (
+              <BookCard data={data} key={data.id} />
+            ))}
           </div>
         </div>
         <div className="col-md-3">
