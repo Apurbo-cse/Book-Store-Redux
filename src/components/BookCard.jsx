@@ -15,7 +15,7 @@ export const BookCard = ({ data }) => {
             </div>
             <h5>{data?.name}</h5>
             <small>{data?.author}</small>
-            <p>*</p>
+            <p><i className="fa-solid fa-star text-warning"></i> <i className="fa-regular fa-star"></i></p>
             <p>BDT {data?.price}</p>
           </div>
         </div>
