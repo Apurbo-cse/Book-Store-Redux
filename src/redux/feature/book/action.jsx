@@ -14,9 +14,9 @@ export const added = (name, author, img_url, price, rating, featured) => {
     }
 }
 
-export const update = (name, author, img_url, price, rating, featured) => {
+export const update = (id) => {
     return {
         type: UPDATED,
-        payload : name, author, img_url, price, rating, featured
+        payload : id
     }
 }
