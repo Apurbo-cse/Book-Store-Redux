@@ -3,7 +3,7 @@ import { LOADED } from "./actionType";
 
 
 const reducer = (state , action) => {
-    switch (key) {
+    switch (action.type) {
         case LOADED:
             return action.payload;
     
