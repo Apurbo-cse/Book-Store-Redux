@@ -6,7 +6,7 @@ const addBook = (name) => {
         try {
             const res = await axios.post('http://localhost:9000/books', {
                 name: name,
-                features: false
+                featured: false
             }, {
                 headers: {
                     "Content-Type": "application/json; charset=UTF-8"
