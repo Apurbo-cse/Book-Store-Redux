@@ -5,15 +5,20 @@ import addBook from "../redux/feature/book/thunk/addBook";
 const AddBook = () => {
     const dispatch = useDispatch();
     const [ input, setInput] = useState('');
+    const [ author, setAuthor] = useState('');
 
     const handelInput = (e) => {
         setInput(e.target.value);
     }
+    const handelAuth = (e) => {
+        setAuthor(e.target.value);
+    }
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        dispatch(addBook(input));
+        dispatch(addBook(input,author));
         setInput("");
+        setAuthor("");
     }
 
     return (
@@ -29,7 +34,7 @@ const AddBook = () => {
                 </div>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Author</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" value={author} onChange={handelAuth} className="form-control" />
                 </div>
 
                 <div className="form-group">
