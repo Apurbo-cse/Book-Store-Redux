@@ -16,7 +16,11 @@ const bookReducer = (state=initialState , action) => {
                 ...state, 
                 {
                     id: nextBookId(state),
-                    text: action.payload,
+                    name: action.payload,
+                    author: action.payload,
+                    img_url: action.payload,
+                    price: action.payload,
+                    rating: action.payload,
                     featured: false
                 }
             ]
