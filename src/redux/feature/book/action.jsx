@@ -1,4 +1,4 @@
-import { ADDED, LOADED } from "./actionType"
+import { ADDED, LOADED, UPDATED } from "./actionType"
 
 export const loaded = (books) => {
     return {
@@ -16,7 +16,7 @@ export const added = (name, author, img_url, price, rating, featured) => {
 
 export const update = (name, author, img_url, price, rating, featured) => {
     return {
-        type: ADDED,
+        type: UPDATED,
         payload : name, author, img_url, price, rating, featured
     }
 }
