@@ -1,13 +1,13 @@
 import React from 'react'
 
 export const BookCard = ({ data }) => {
-  const { name, id, author, thumbnail, price, rating } = data;
+  const { name, id, author, img_url, price, rating } = data;
   return (
     <>
       <div className="col-md-6 mb-3">
         <div className="d-flex br rounded-3 m-2">
           <div className="p-0 m-0 card col-md-4">
-            <img src={thumbnail} className="p-0 m-0 img-fluid" alt="" />
+            <img src={img_url} className="p-0 m-0 img-fluid" alt="" />
           </div>
           <div className="px-2 pt-1 col-md-8">
             <div className="d-flex justify-content-between pb-2">
