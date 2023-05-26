@@ -4,7 +4,7 @@ export const BookCard = ({ data }) => {
   return (
     <>
       <div className="col-md-6 mb-3">
-        <div className="d-flex br rounded-3 m-2">
+        <div className="d-flex br bg-light rounded-3 m-2">
           <div className="p-0 m-0 card col-md-4">
             <img src={data?.img_url} className="p-0 m-0 img-fluid" alt="" />
           </div>
