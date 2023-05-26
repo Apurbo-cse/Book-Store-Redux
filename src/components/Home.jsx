@@ -5,12 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchBooks from "../redux/feature/book/thunk/fetchBooks";
 
 const Home = () => {
-  
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchBooks);
   }, [dispatch]);
+
+  // Sort the books array in reverse chronological order based on ID
+  const sortedBooks = [...books].sort((a, b) => b.id - a.id);
 
   return (
     <div className="container">
@@ -28,7 +31,7 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-            {books.map((data) => (
+            {sortedBooks.map((data) => (
               <BookCard data={data} key={data.id} />
             ))}
           </div>
