@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { added } from '../action';
 
-const addBook = (name) => {
+const addBook = (name, author) => {
     return async (dispatch) => {
         try {
             const res = await axios.post('http://localhost:9000/books', {
