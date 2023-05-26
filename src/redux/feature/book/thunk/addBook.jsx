@@ -6,6 +6,7 @@ const addBook = (name) => {
         try {
             const res = await axios.post('http://localhost:9000/books', {
                 name: name,
+                author: name,
                 featured: false
             }, {
                 headers: {
@@ -13,8 +14,8 @@ const addBook = (name) => {
                 }
             });
 
-            const todo = res.data;
-            dispatch(added(todo.name));
+            const book = res.data;
+            dispatch(added(book.name, book.author));
         } catch (error) {
             // Handle error
             console.error(error);
