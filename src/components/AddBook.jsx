@@ -33,12 +33,13 @@ const AddBook = () => {
     const handelSubmit = (e) => {
         e.preventDefault();
         console.log(featured);
-        dispatch(addBook(input,author,img_url,price,rating));
+        dispatch(addBook(input,author,img_url,price,rating,featured));
         setInput("");
         setAuthor("");
         setImgUrl("");
         setPrice("");
         setRating("");
+        setFeatured("");
     }
     return (
         <>
