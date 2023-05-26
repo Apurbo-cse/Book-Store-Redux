@@ -1,12 +1,7 @@
 import { LOADED } from "./actionType";
+import initialState from "./initialState";
 
-const initialState = {
-    // define your initial state here
-    // for example:
-    books: [],
-  };
-
-const bookReducer = (state= initialState , action) => {
+const bookReducer = (state=initialState , action) => {
     switch (action.type) {
         case LOADED:
             return action.payload;

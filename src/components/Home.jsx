@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BookCard } from "./BookCard";
 import AddBook from "./AddBook";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +9,8 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooks);
-  },[dispatch])
-
+  }, [dispatch]);
+  console.log('object :>> ', books);
   return (
     <div className="container">
       <div className="row my-4">
@@ -27,13 +27,13 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-            {books.map((data)=>{
-              <BookCard key={data.id} data={data} />
-            })}
+          {books.map((data) => (
+  <BookCard data={data} key={data.id} />
+))}
           </div>
         </div>
         <div className="col-md-3">
-          <AddBook/>
+          <AddBook />
         </div>
       </div>
     </div>

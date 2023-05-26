@@ -21,20 +21,20 @@ const AddBook = () => {
                     <label for="exampleInputEmail1">Image Url</label>
                     <input type="text" className="form-control" />
                 </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
+                <div className="row">
+                    <div className="form-group col-md-6">
                         <label for="inputEmail4">Price</label>
                         <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             // value={value}
                             // onChange={handleInputChange}
                             placeholder="0"
                         />
                     </div>
-                    <div class="form-group col-md-6">
+                    <div className="form-group col-md-6">
                         <label>Rating</label>
-                        <input type="text" class="form-control" placeholder="0" />
+                        <input type="text" className="form-control" placeholder="0" />
                     </div>
                 </div>
 

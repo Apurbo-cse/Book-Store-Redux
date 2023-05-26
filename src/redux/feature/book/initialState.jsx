@@ -1,5 +1,6 @@
-const initialState = {
-    // define your initial state here
-    // for example:
-    books: [],
-  };
+const initialState = [
+
+]
+
+export default initialState;
+
