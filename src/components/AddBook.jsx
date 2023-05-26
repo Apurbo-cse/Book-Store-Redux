@@ -9,6 +9,7 @@ const AddBook = () => {
     const [ img_url, setImgUrl] = useState('');
     const [ price, setPrice] = useState('');
     const [ rating, setRating] = useState('');
+    const [featured, setFeatured] = useState(false);
 
     const handelInput = (e) => {
         setInput(e.target.value);
@@ -25,9 +26,13 @@ const AddBook = () => {
     const handelRating = (e) => {
         setRating(e.target.value);
     }
+    const handleFeaturedChange = (e) => {
+        setFeatured(e.target.checked);
+      };
 
     const handelSubmit = (e) => {
         e.preventDefault();
+        console.log(featured);
         dispatch(addBook(input,author,img_url,price,rating));
         setInput("");
         setAuthor("");
@@ -35,7 +40,6 @@ const AddBook = () => {
         setPrice("");
         setRating("");
     }
-
     return (
         <>
             <form onSubmit={handelSubmit} className="br bg-light rounded-3 p-2 pt-0">
@@ -68,11 +72,7 @@ const AddBook = () => {
                 </div>
 
                 <div className="form-check my-2">
-                    <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="exampleCheck1"
-                    />
+                    <input type="checkbox" checked={featured} onChange={handleFeaturedChange} className="form-check-input" id="exampleCheck1"/>
                     <label className="form-check-label" for="exampleCheck1">
                         This is a featured book
                     </label>
