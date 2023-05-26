@@ -10,7 +10,7 @@ const addBook = (name, author, img_url, price, rating) => {
                 img_url: img_url,
                 price: price,
                 rating: rating,
-                featured: false
+                featured: featured
             }, {
                 headers: {
                     "Content-Type": "application/json; charset=UTF-8"
