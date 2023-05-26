@@ -15,6 +15,7 @@ const AddBook = () => {
     const [imgUrlError, setImgUrlError] = useState(false);
     const [priceError, setPriceError] = useState(false);
     const [ratingError, setRatingError] = useState(false);
+    const [success, setSuccess] = useState(false); // New state for success message
 
     const handleInput = (e) => {
         setInput(e.target.value);
@@ -88,6 +89,7 @@ const AddBook = () => {
         setPrice('');
         setRating('');
         setFeatured(false);
+        setSuccess(true); // Set success to true after successful submission
     };
 
     return (
@@ -134,6 +136,11 @@ const AddBook = () => {
                     Submit
                 </button>
             </form>
+            {success && (
+                <div className="alert alert-success mt-3" role="alert">
+                    Book added successfully!
+                </div>
+            )}
         </>
     );
 };
