@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BookCard } from "./BookCard";
+import AddBook from "./AddBook";
 
 const Home = () => {
 
@@ -34,7 +35,7 @@ const Home = () => {
           </div>
         </div>
         <div className="col-md-3">
-        
+          <AddBook/>
         </div>
       </div>
     </div>
