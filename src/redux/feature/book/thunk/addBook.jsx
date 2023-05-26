@@ -6,7 +6,7 @@ const addBook = (name) => {
         try {
             const res = await axios.post('http://localhost:9000/books', {
                 name: name,
-                author: name,
+                author: author,
                 featured: false
             }, {
                 headers: {
