@@ -1,6 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 
-export const BookCard = () => {
+export const BookCard = ({data}) => {
+  const dispatch = useDispatch();
+    const { name, id, author, price, rating } = data;
   return (
     <>
      <div className="col-md-6 mb-3">
