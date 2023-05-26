@@ -1,8 +1,7 @@
 import { LOADED } from "./actionType";
 
 
-
-const reducer = (state , action) => {
+const bookReducer = (state , action) => {
     switch (action.type) {
         case LOADED:
             return action.payload;
@@ -12,4 +11,4 @@ const reducer = (state , action) => {
     }
 }
 
-export default reducer;
+export default bookReducer;
