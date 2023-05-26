@@ -1,4 +1,4 @@
-import { ADDED, LOADED } from "./actionType";
+import { ADDED, LOADED, UPDATED } from "./actionType";
 import initialState from "./initialState";
 
 const nextBookId = (books) => {
@@ -24,6 +24,16 @@ const bookReducer = (state=initialState , action) => {
                     featured: action.payload
                 }
             ]
+        case UPDATED:
+            return state.map(book => {
+                if(book.id !== action.payload){
+                    return book
+                }
+                return {
+                    ...book,
+                    update: !book.update
+                }
+                })
     
         default:
             return state

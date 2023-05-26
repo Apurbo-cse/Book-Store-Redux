@@ -14,9 +14,10 @@ export const added = (name, author, img_url, price, rating, featured) => {
     }
 }
 
-export const update = (id) => {
+export const updated = (book) => {
     return {
-        type: UPDATED,
-        payload : id
-    }
-}
+      type: 'UPDATED',
+      payload: book
+    };
+  };
+  

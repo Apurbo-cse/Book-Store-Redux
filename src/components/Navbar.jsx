@@ -58,8 +58,10 @@ const Navbar = () => {
               </li>
             </ul>
             <form className="d-flex" role="search">
+
+              
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="border-0 rounded-3 bg-dark text-light p-0 m-0 px-2" type="submit">Search</button>
+       
       </form>
           </div>
         </div>
