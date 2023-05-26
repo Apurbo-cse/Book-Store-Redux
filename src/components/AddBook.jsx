@@ -12,40 +12,40 @@ const AddBook = () => {
     const [featured, setFeatured] = useState(false);
     const [inputError, setInputError] = useState(false);
     const [authorError, setAuthorError] = useState(false);
-    const [img_urlError, setImgUrlError] = useState(false);
+    const [imgUrlError, setImgUrlError] = useState(false);
     const [priceError, setPriceError] = useState(false);
     const [ratingError, setRatingError] = useState(false);
 
-    const handelInput = (e) => {
+    const handleInput = (e) => {
         setInput(e.target.value);
         setInputError(false);
-    }
+    };
 
-    const handelAuth = (e) => {
+    const handleAuthor = (e) => {
         setAuthor(e.target.value);
         setAuthorError(false);
-    }
+    };
 
-    const handelImgUrl = (e) => {
+    const handleImgUrl = (e) => {
         setImgUrl(e.target.value);
         setImgUrlError(false);
-    }
+    };
 
-    const handelPrice = (e) => {
+    const handlePrice = (e) => {
         setPrice(e.target.value);
         setPriceError(false);
-    }
+    };
 
-    const handelRating = (e) => {
+    const handleRating = (e) => {
         setRating(e.target.value);
         setRatingError(false);
-    }
+    };
 
     const handleFeaturedChange = (e) => {
         setFeatured(e.target.checked);
     };
 
-    const handelSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         let hasError = false;
@@ -86,35 +86,38 @@ const AddBook = () => {
         setPrice('');
         setRating('');
         setFeatured(false);
-    }
+    };
 
     return (
         <>
-            <form onSubmit={handelSubmit} className="br bg-light rounded-3 p-2 pt-0">
+            <form onSubmit={handleSubmit} className="br bg-light rounded-3 p-2 pt-0">
                 <h4>Create New Book</h4>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Book Name</label>
-                    <input type="text" value={input} onChange={handelInput} className={`form-control ${inputError ? 'is-invalid' : ''}`} />
+                    <input type="text" value={input} onChange={handleInput} className={`form-control ${inputError ? 'is-invalid' : ''}`} />
                     {inputError && <div className="invalid-feedback">Please enter a book name</div>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Author</label>
-                    <input type="text" value={author} onChange={handelAuth} className={`form-control ${authorError ? 'is-invalid' : ''}`} />
+                    <input type="text" value={author} onChange={handleAuthor} className={`form-control ${authorError ? 'is-invalid' : ''}`} />
                     {authorError && <div className="invalid-feedback">Please enter an author name</div>}
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Image Url</label>
-                    <input type="text" value={img_url} onChange={handelImgUrl} className="form-control" />
+                    <input type="text" value={img_url} onChange={handleImgUrl} className={`form-control ${imgUrlError ? 'is-invalid' : ''}`} />
+                    {imgUrlError && <div className="invalid-feedback">Please enter an image URL</div>}
                 </div>
                 <div className="row">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputEmail4">Price</label>
-                        <input type="text" value={price} onChange={handelPrice} className="form-control" placeholder="0" />
+                        <input type="text" value={price} onChange={handlePrice} className={`form-control ${priceError ? 'is-invalid' : ''}`} placeholder="0" />
+                        {priceError && <div className="invalid-feedback">Please enter a price</div>}
                     </div>
                     <div className="form-group col-md-6">
                         <label>Rating</label>
-                        <input type="text" value={rating} onChange={handelRating} className="form-control" placeholder="0" />
+                        <input type="text" value={rating} onChange={handleRating} className={`form-control ${ratingError ? 'is-invalid' : ''}`} placeholder="0" />
+                        {ratingError && <div className="invalid-feedback">Please enter a rating</div>}
                     </div>
                 </div>
 
