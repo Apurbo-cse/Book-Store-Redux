@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchBooks from "../redux/feature/book/thunk/fetchBooks";
 
 const Home = () => {
+  
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooks);
   }, [dispatch]);
-  console.log("object :>> ", books);
+
   return (
     <div className="container">
       <div className="row my-4">

@@ -6,6 +6,9 @@ const AddBook = () => {
     const dispatch = useDispatch();
     const [ input, setInput] = useState('');
     const [ author, setAuthor] = useState('');
+    const [ img_url, setImgUrl] = useState('');
+    const [ price, setPrice] = useState('');
+    const [ rating, setRating] = useState('');
 
     const handelInput = (e) => {
         setInput(e.target.value);
@@ -13,12 +16,24 @@ const AddBook = () => {
     const handelAuth = (e) => {
         setAuthor(e.target.value);
     }
+    const handelImgUrl = (e) => {
+        setImgUrl(e.target.value);
+    }
+    const handelPrice = (e) => {
+        setPrice(e.target.value);
+    }
+    const handelRating = (e) => {
+        setRating(e.target.value);
+    }
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        dispatch(addBook(input,author));
+        dispatch(addBook(input,author,img_url,price,rating));
         setInput("");
         setAuthor("");
+        setImgUrl("");
+        setPrice("");
+        setRating("");
     }
 
     return (
@@ -29,8 +44,8 @@ const AddBook = () => {
                     <label for="exampleInputEmail1">Book Name</label>
                     <input type="text" value={input} onChange={handelInput} className="form-control" />
                     {/* <small id="emailHelp" className="form-text text-muted mb-2">
-                We'll never share your email with anyone else.
-              </small> */}
+                        We'll never share your email with anyone else.
+                    </small> */}
                 </div>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Author</label>
@@ -39,22 +54,16 @@ const AddBook = () => {
 
                 <div className="form-group">
                     <label for="exampleInputEmail1">Image Url</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" value={img_url} onChange={handelImgUrl} className="form-control" />
                 </div>
                 <div className="row">
                     <div className="form-group col-md-6">
                         <label for="inputEmail4">Price</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            // value={value}
-                            // onChange={handleInputChange}
-                            placeholder="0"
-                        />
+                        <input type="text" value={price} onChange={handelPrice} className="form-control" placeholder="0" />
                     </div>
                     <div className="form-group col-md-6">
                         <label>Rating</label>
-                        <input type="text" className="form-control" placeholder="0" />
+                        <input type="text" value={rating} onChange={handelRating} className="form-control" placeholder="0" />
                     </div>
                 </div>
 
