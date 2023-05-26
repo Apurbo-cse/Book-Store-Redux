@@ -38,7 +38,7 @@ const AddBook = () => {
 
     return (
         <>
-            <form onSubmit={handelSubmit} className="br bg-light p-2 pt-0">
+            <form onSubmit={handelSubmit} className="br bg-light rounded-3 p-2 pt-0">
                 <h4>Create New Book</h4>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Book Name</label>
