@@ -15,7 +15,8 @@ const AddBook = () => {
     const [imgUrlError, setImgUrlError] = useState(false);
     const [priceError, setPriceError] = useState(false);
     const [ratingError, setRatingError] = useState(false);
-    const [success, setSuccess] = useState(false); // New state for success message
+    const [loading, setLoading] = useState(false); // New state for loading state
+    const [success, setSuccess] = useState(false);
 
     const handleInput = (e) => {
         setInput(e.target.value);
@@ -33,13 +34,13 @@ const AddBook = () => {
     };
 
     const handlePrice = (e) => {
-        const value = e.target.value.replace(/[^\d.]/g, ''); // Allow only digits and a decimal point
+        const value = e.target.value.replace(/[^\d.]/g, '');
         setPrice(value);
         setPriceError(false);
     };
 
     const handleRating = (e) => {
-        const value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+        const value = e.target.value.replace(/\D/g, '');
         setRating(value);
         setRatingError(false);
     };
@@ -82,14 +83,24 @@ const AddBook = () => {
             return;
         }
 
-        dispatch(addBook(input, author, img_url, price, rating, featured));
-        setInput('');
-        setAuthor('');
-        setImgUrl('');
-        setPrice('');
-        setRating('');
-        setFeatured(false);
-        setSuccess(true); // Set success to true after successful submission
+        setLoading(true); // Start loading
+
+        dispatch(addBook(input, author, img_url, price, rating, featured))
+            .then(() => {
+                setInput('');
+                setAuthor('');
+                setImgUrl('');
+                setPrice('');
+                setRating('');
+                setFeatured(false);
+                setSuccess(true);
+            })
+            .catch((error) => {
+                console.log('Error:', error);
+            })
+            .finally(() => {
+                setLoading(false); // Stop loading
+            });
     };
 
     return (
@@ -132,8 +143,8 @@ const AddBook = () => {
                     </label>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                    Submit
+                <button type="submit" className="btn btn-primary" disabled={loading}>
+                    {loading ? "Adding..." : "Submit"}
                 </button>
             </form>
             {success && (
