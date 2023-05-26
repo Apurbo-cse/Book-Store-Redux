@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { BookCard } from "./BookCard";
 import AddBook from "./AddBook";
+import { useDispatch, useSelector } from "react-redux";
+import fetchBooks from "../redux/feature/book/thunk/fetchBooks";
 
 const Home = () => {
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks);
+  },[dispatch])
 
-  const [value, setValue] = useState('');
-
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-
-    // Remove any non-numeric characters from the input
-    const numericValue = inputValue.replace(/\D/g, '');
-
-    // Update the state with the numeric value
-    setValue(numericValue);
-  };
   return (
     <div className="container">
       <div className="row my-4">
@@ -31,7 +27,9 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-            <BookCard />
+            {books.map((data)=>{
+              <BookCard key={data.id} data={data} />
+            })}
           </div>
         </div>
         <div className="col-md-3">
