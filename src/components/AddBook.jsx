@@ -54,6 +54,7 @@ const AddBook = () => {
     setRatingError(false);
   };
 
+
   const handleFeaturedChange = (e) => {
     setFeatured(e.target.checked);
   };
