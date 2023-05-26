@@ -10,7 +10,7 @@ export const BookCard = ({ data }) => {
           </div>
           <div className="px-2 pt-1 col-md-8">
             <div className="d-flex justify-content-between pb-2">
-              <div><span className=' fw-bold'>Features</span></div>
+              <div>{data.featured && <><span className=' fw-bold'>Features</span></>}</div>
               <div className='d-flex justify-content-end px-2 pt-1'> <i className="cp fa-regular fa-pen-to-square me-2 text-info"></i> <i className="cp fa-solid fa-trash-can text-danger"></i></div>
             </div>
             <h5>{data?.name}</h5>
