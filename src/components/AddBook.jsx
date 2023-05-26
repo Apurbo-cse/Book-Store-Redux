@@ -14,7 +14,6 @@ const AddBook = () => {
   const [authorError, setAuthorError] = useState(false);
   const [imgUrlError, setImgUrlError] = useState(false);
   const [priceError, setPriceError] = useState(false);
-  const [ratingError, setRatingError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [successTimeout, setSuccessTimeout] = useState(null);
@@ -51,7 +50,6 @@ const AddBook = () => {
   const handleRating = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setRating(value);
-    setRatingError(false);
   };
 
 
@@ -184,12 +182,9 @@ const AddBook = () => {
               type="text"
               value={rating}
               onChange={handleRating}
-              className={`form-control ${ratingError ? "is-invalid" : ""}`}
+              className="form-control"
               placeholder="0"
             />
-            {ratingError && (
-              <div className="invalid-feedback">Please enter a rating</div>
-            )}
           </div>
         </div>
 
