@@ -9,9 +9,15 @@ const AddBook = () => {
         setInput(e.target.value);
     }
 
+    const handelSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addTodo(input));
+        setInput("");
+    }
+
     return (
         <>
-            <form className="shadow p-2 pt-0">
+            <form onSubmit={handelSubmit} className="shadow p-2 pt-0">
                 <h4>Create New Book</h4>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Book Name</label>
