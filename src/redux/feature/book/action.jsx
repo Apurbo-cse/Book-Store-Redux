@@ -7,9 +7,9 @@ export const loaded = (books) => {
     }
 }
 
-export const added = (name, author) => {
+export const added = (name, author, img_url, price, rating) => {
     return {
         type: ADDED,
-        payload : name, author
+        payload : name, author, img_url, price, rating
     }
 }
