@@ -21,7 +21,7 @@ const bookReducer = (state=initialState , action) => {
                     img_url: action.payload,
                     price: action.payload,
                     rating: action.payload,
-                    featured: false
+                    featured: action.payload
                 }
             ]
     
