@@ -32,12 +32,14 @@ const AddBook = () => {
     };
 
     const handlePrice = (e) => {
-        setPrice(e.target.value);
+        const value = e.target.value.replace(/[^\d.]/g, ''); // Allow only digits and a decimal point
+        setPrice(value);
         setPriceError(false);
     };
 
     const handleRating = (e) => {
-        setRating(e.target.value);
+        const value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+        setRating(value);
         setRatingError(false);
     };
 
