@@ -32,8 +32,11 @@ const Home = () => {
       <div className="row my-4">
         <div className="col-md-9 mb-2">
           <div className="d-flex justify-content-between">
-            <div className="fs-4 fw-bold">Book List</div>
+            <div className="fs-4 fw-bold">Book List </div>
+            
             <div>
+              
+            <input type="text" className="pt-0 me-2 px-2" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="🔍search by name" />
               <button className="btn btn-outline-dark px-3 p-0 me-2">
                 All
               </button>
@@ -43,14 +46,6 @@ const Home = () => {
             </div>
           </div>
           <div className="d-flex flex-wrap mt-3">
-            <div>
-              <input
-                type="text"
-                placeholder="Search by name"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
             {loading ? (
               <div>Loading...</div>
             ) : filteredBooks.length === 0 ? (
